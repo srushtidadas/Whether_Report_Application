@@ -2,7 +2,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:whether_report_app/Model/whether_data.dart';
+import '../Model/whether_data.dart';
 
 class WhetherInheritedWidget extends InheritedWidget {
   WhetherData whetherData;

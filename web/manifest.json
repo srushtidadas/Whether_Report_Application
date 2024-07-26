@@ -1,6 +1,6 @@
 {
-    "name": "whether_report_app",
-    "short_name": "whether_report_app",
+    "name": "weather_app_youtube",
+    "short_name": "weather_app_youtube",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
