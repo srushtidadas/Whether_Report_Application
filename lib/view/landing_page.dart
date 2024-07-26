@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:whether_report_app/view/home_screen.dart';
-import 'package:whether_report_app/view/seach_page.dart';
-import 'package:whether_report_app/view/thermal_view_page.dart';
+import 'package:wether_report_api/view/home_screen.dart';
+import 'package:wether_report_api/view/seach_page.dart';
+import 'package:wether_report_api/view/thermal_view_page.dart';
 import 'navigation_bar.dart';
-import 'setting_page.dart';
 
 /// Copyright (c) 2024 PDevelopment
 ///
 /// This `LandingPage` widget serves as the main navigation interface,
-/// allowing users to switween different sections of the app using
+/// allowing users to switch between different sections of the app using
 /// a bottom navigation bar. It includes the following features:
 ///
 /// - Stateful Widget: Maintains its state and updates its UI dynamically.
@@ -30,23 +29,7 @@ class _LandingPageState extends State<LandingPage> {
     const HomeScreen(),
     const SearchPage(),
     const ThermalViewPage(),
-    const SettingPage(),
   ];
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _fetchWeatherData();
-  // }
-
-  // Future<void> _fetchWeatherData() async {
-  //   final whetherData = await FeachData.feachWetherInfo();
-  //   setState(() {
-  //     WhetherInheritedWidget.of(context).whetherData =
-  //         WhetherData.fromJson(whetherData);
-
-  //     log("${WhetherInheritedWidget.of(context).whetherData.toJson()['current']['temp_c']}");
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -55,12 +38,12 @@ class _LandingPageState extends State<LandingPage> {
       extendBodyBehindAppBar: true,
       body: _pages[_selectedIndex],
       bottomNavigationBar: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 5),
+        padding: const EdgeInsets.all(18.0),
         child: FlashyTabBar(
           animationCurve: Curves.linear,
           selectedIndex: _selectedIndex,
           iconSize: 30,
-          showElevation: false,
+          showElevation: false, // use this to remove appBar's elevation
           onItemSelected: (index) => setState(() {
             _selectedIndex = index;
           }),
@@ -75,7 +58,7 @@ class _LandingPageState extends State<LandingPage> {
             ),
             FlashyTabBarItem(
               icon: const Icon(Icons.event),
-              title: const Text('Thermal'),
+              title: const Text('Events'),
             ),
             FlashyTabBarItem(
               icon: const Icon(Icons.settings),

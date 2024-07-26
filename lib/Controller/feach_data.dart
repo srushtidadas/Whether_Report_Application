@@ -1,21 +1,13 @@
-import 'dart:developer';
-import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
-import 'package:whether_report_app/Model/whether_data.dart';
 import 'dart:convert';
-import '../Model/my_data.dart';
 
 class FeachData {
-  static Future<WhetherData> feachWetherInfo(Position position) async {
-    // Replace with your test API key
-    double latitude = position.latitude;
-    double longitude = position.longitude;
+  static Future<Map> feachWetherInfo({required String location}) async {
     String wetherApiUrl =
-        "https://api.weatherapi.com/v1/forecast.json?key=$apiKey&q=$latitude,$longitude&days=1'";
+        "http://api.weatherapi.com/v1/current.json?key=eb021f5f7a9d491a9e363519240906&q=$location&aqi=no";
     Uri uri = Uri.parse(wetherApiUrl);
     http.Response response = await http.get(uri);
-    log(response.body);
     var responseData = json.decode(response.body);
-    return WhetherData.fromJson(responseData);
+    return responseData;
   }
 }
